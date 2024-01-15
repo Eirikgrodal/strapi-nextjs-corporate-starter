@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_elements_cta_buttoms",
+  "info": {
+    "displayName": "Cta buttom"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.button-link"
+    }
+  }
+}

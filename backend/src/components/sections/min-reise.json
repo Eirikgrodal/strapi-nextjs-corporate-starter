@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_min_reises",
+  "info": {
+    "displayName": "Min reise"
+  },
+  "options": {},
+  "attributes": {
+    "Tag": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "Min_reise_innhold": {
+      "displayName": "Mine reise innhold",
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.mine-reise-innhold"
+    }
+  }
+}

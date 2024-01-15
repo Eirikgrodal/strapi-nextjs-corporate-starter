@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_elements_mine_reise_innholds",
+  "info": {
+    "displayName": "Mine reise innhold"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "hvilken_plass": {
+      "type": "string"
+    },
+    "start_dato": {
+      "type": "date"
+    },
+    "slutt_dato": {
+      "type": "date"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "Bilde": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
