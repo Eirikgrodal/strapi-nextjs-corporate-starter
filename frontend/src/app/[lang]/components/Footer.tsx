@@ -25,11 +25,11 @@ interface CategoryLink {
 function FooterLink({ url, text }: FooterLink) {
   const path = usePathname();
   return (
-    <li className="flex">
+    <li className="inline-block pb-6 ">
       <Link
         href={url}
-        className={`hover:dark:text-violet-400 ${
-          path === url && "dark:text-violet-400 dark:border-violet-400"
+        className={`hover:text-darkGold ${
+          path === url && "dark:text-darkGold"
         }}`}
       >
         {text}
@@ -40,11 +40,8 @@ function FooterLink({ url, text }: FooterLink) {
 
 function CategoryLink({ attributes }: CategoryLink) {
   return (
-    <li className="flex">
-      <Link
-        href={`/blog/${attributes.slug}`}
-        className="hover:dark:text-violet-400"
-      >
+    <li className="inline-block">
+      <Link href={`/blog/${attributes.slug}`} className="hover:text-darkGold">
         {attributes.name}
       </Link>
     </li>
@@ -81,29 +78,20 @@ export default function Footer({
   legalLinks: Array<FooterLink>;
   socialLinks: Array<FooterLink>;
 }) {
-
   return (
     <footer className="py-6 ">
       <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
-        <div className="grid grid-cols-12">
-          <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
-            {/* <Logo src={logoUrl}>
-              {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
-            </Logo> */}
-          </div>
-
-          <div className="col-span-6 text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-lg font-medium">Categories</p>
-            <ul>
+        <div className="">
+          <div className="mx-auto text-center">
+            <ul className="pb-6 md:flex-none flex flex-row justify-center">
               {categoryLinks.map((link: CategoryLink) => (
                 <CategoryLink key={link.id} {...link} />
               ))}
             </ul>
           </div>
 
-          <div className="col-span-6 text-center md:text-left md:col-span-3">
-            <p className="pb-1 text-lg font-medium">Menu</p>
-            <ul>
+          <div className="">
+            <ul className="-mb-6 columns-3 flex sm:flex justify-center sm:space-y-0 md:gap-16 gap-14">
               {menuLinks.map((link: FooterLink) => (
                 <FooterLink key={link.id} {...link} />
               ))}
