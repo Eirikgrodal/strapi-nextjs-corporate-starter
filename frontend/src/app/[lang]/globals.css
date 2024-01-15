@@ -4,7 +4,8 @@
 @import "react-slideshow-image/dist/styles.css";
 
 body {
-  @apply dark:bg-black
+  color: #C3A979;
+  background: #152046;
 }
 
 

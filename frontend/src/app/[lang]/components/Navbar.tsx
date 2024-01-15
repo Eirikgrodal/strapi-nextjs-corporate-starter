@@ -24,8 +24,8 @@ function NavLink({ url, text }: NavLink) {
     <li className="flex">
       <Link
         href={url}
-        className={`flex items-center mx-4 -mb-1 border-b-2 dark:border-transparent ${
-          path === url && "dark:text-violet-400 dark:border-violet-400"
+        className={`justify-center items-center inline-flex px-8 pt-1 text-md font-medium hover:text-darkGold ${
+          path === url && "dark:text-darkGold "
         }}`}
       >
         {text}
@@ -44,8 +44,8 @@ function MobileNavLink({ url, text, closeMenu }: MobileNavLink) {
       <Link
         href={url}
         onClick={handleClick}
-        className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-100 hover:bg-gray-900 ${
-          path === url && "dark:text-violet-400 dark:border-violet-400"
+        className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:text-darkGold ${
+          path === url && "dark:text-darkGold "
         }}`}
       >
         {text}
@@ -68,8 +68,8 @@ export default function Navbar({
     setMobileMenuOpen(false);
   };
   return (
-    <div className="p-4 dark:bg-black dark:text-gray-100">
-      <div className="container flex justify-between h-16 mx-auto px-0 sm:px-6">
+    <div className="p-4 ">
+      <div className="container flex justify-center h-16 mx-auto px-0 sm:px-6">
         {/* <Logo src={logoUrl}>
           {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
         </Logo> */}
@@ -88,9 +88,9 @@ export default function Navbar({
           open={mobileMenuOpen}
           onClose={setMobileMenuOpen}
         >
-          <div className="fixed inset-0 z-40 bg-gray-600 bg-opacity-75" />{" "}
+          <div className="fixed inset-0 z-40 bg-darkBlueNew bg-opacity-75" />{" "}
           {/* Overlay */}
-          <Dialog.Panel className="fixed inset-y-0 rtl:left-0 ltr:right-0 z-50 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-inset sm:ring-white/10">
+          <Dialog.Panel className="fixed inset-y-0 rtl:left-0 ltr:right-0 z-50 w-full overflow-y-auto bg-darkBlueNew px-6 py-6 sm:max-w-sm  ">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Strapi</span>
@@ -98,15 +98,15 @@ export default function Navbar({
               </a>
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-white"
+                className="-m-2.5 rounded-md p-2.5 "
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="h-6 text-Gold w-6" aria-hidden="true" />
               </button>
             </div>
             <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-700">
+              <div className="-my-6 divide-y ">
                 <div className="space-y-2 py-6">
                   {links.map((item) => (
                     <MobileNavLink
@@ -124,7 +124,7 @@ export default function Navbar({
           className="p-4 lg:hidden"
           onClick={() => setMobileMenuOpen(true)}
         >
-          <Bars3Icon className="h-7 w-7 text-gray-100" aria-hidden="true" />
+          <Bars3Icon className="h-7 w-7 text-Gold" aria-hidden="true" />
         </button>
       </div>
     </div>

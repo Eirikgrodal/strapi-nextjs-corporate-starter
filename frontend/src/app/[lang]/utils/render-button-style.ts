@@ -1,10 +1,10 @@
 export function renderButtonStyle(type: string) {
 	switch (type) {
 		case "primary":
-			return "px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900";
+			return "rounded-md bg-Gold px-6 py-3 text-md font-semibold text-white shadow-sm hover:bg-darkGold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ";
 		case "secondary":
-			return "px-8 py-3 text-lg font-semibold border rounded dark:border-gray-100";
+			return "rounded-md bg-Gold px-6 py-3 text-md font-semibold text-white shadow-sm hover:bg-darkGold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ";
 		default:
-			return "px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900";
+			return "rounded-md bg-Gold px-6 py-3 text-md font-semibold text-white shadow-sm hover:bg-darkGold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ";
 	}
 }

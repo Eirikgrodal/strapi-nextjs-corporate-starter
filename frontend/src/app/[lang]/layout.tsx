@@ -8,6 +8,7 @@ import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import {FALLBACK_SEO} from "@/app/[lang]/utils/constants";
+import FooterCta from "./components/footerCta";
 
 
 async function getGlobal(lang: string): Promise<any> {
@@ -30,6 +31,9 @@ async function getGlobal(lang: string): Promise<any> {
       "footer.legalLinks",
       "footer.socialLinks",
       "footer.categories",
+      "ctaButton",
+      "ctaButton.ctaButton",
+      "ctaButton.button.url",
     ],
     locale: lang,
   };
@@ -64,7 +68,7 @@ export default async function RootLayout({
   // TODO: CREATE A CUSTOM ERROR PAGE
   if (!global.data) return null;
   
-  const { notificationBanner, navbar, footer } = global.data.attributes;
+  const { notificationBanner, navbar, footer, ctaButton } = global.data.attributes;
 
   // const navbarLogoUrl = getStrapiMedia(
   //   navbar.navbarLogo.logoImg.data.attributes.url
@@ -83,12 +87,10 @@ export default async function RootLayout({
           // logoText={navbar.navbarLogo.logoText}
         />
 
-        <main className="dark:bg-black dark:text-gray-100 min-h-screen">
-          {children}
-        </main>
+        <main className=" min-h-screen">{children}</main>
 
         <Banner data={notificationBanner} />
-
+        <FooterCta footerctaData={ctaButton} />
         <Footer
           // logoUrl={footerLogoUrl}
           // logoText={footer.footerLogo.logoText}
