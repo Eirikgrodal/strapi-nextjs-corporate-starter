@@ -56,12 +56,12 @@ function MobileNavLink({ url, text, closeMenu }: MobileNavLink) {
 
 export default function Navbar({
   links,
-  logoUrl,
-  logoText,
+  // logoUrl,
+  // logoText,
 }: {
   links: Array<NavLink>;
-  logoUrl: string | null;
-  logoText: string | null;
+  // logoUrl: string | null;
+  // logoText: string | null;
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const closeMenu = () => {
@@ -70,9 +70,9 @@ export default function Navbar({
   return (
     <div className="p-4 dark:bg-black dark:text-gray-100">
       <div className="container flex justify-between h-16 mx-auto px-0 sm:px-6">
-        <Logo src={logoUrl}>
+        {/* <Logo src={logoUrl}>
           {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
-        </Logo>
+        </Logo> */}
 
         <div className="items-center flex-shrink-0 hidden lg:flex">
           <ul className="items-stretch hidden space-x-3 lg:flex">
@@ -94,7 +94,7 @@ export default function Navbar({
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Strapi</span>
-                {logoUrl && <img className="h-8 w-auto" src={logoUrl} alt="" />}
+                {/* {logoUrl && <img className="h-8 w-auto" src={logoUrl} alt="" />} */}
               </a>
               <button
                 type="button"
