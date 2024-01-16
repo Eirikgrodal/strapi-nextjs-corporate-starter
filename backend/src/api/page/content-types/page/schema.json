@@ -38,7 +38,9 @@
         "sections.pricing",
         "sections.lead-form",
         "sections.features",
-        "sections.heading"
+        "sections.heading",
+        "sections.portfolio-home",
+        "sections.min-reise"
       ],
       "pluginOptions": {
         "i18n": {

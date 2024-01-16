@@ -19,14 +19,14 @@
       "type": "uid",
       "targetField": "name"
     },
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "category"
-    },
     "description": {
       "type": "text"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article",
+      "mappedBy": "categories"
     }
   }
 }

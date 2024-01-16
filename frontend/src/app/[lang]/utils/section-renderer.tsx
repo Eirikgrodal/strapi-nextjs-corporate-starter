@@ -3,11 +3,14 @@ import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
 import Email from "../components/Email";
+import PortfolioHome from "../components/PortfolioHome";
 
 export function sectionRenderer(section: any, index: number) {
   switch (section.__component) {
     case "sections.hero":
       return <Hero key={index} data={section} />;
+    case "sections.portfolio-home":
+      return <PortfolioHome key={index} data={section} />;
     case "sections.features":
       return <Features key={index} data={section} />;
     case "sections.testimonials-group":

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { getStrapiMedia } from "../utils/api-helpers";
 
 interface FeaturesProps {
   data: {
@@ -8,33 +10,45 @@ interface FeaturesProps {
   };
 }
 
-
+interface Media {
+  data: {
+    id: string;
+    attributes: {
+      url: string;
+      name: string;
+      alternativeText: string;
+    };
+  };
+}
 
 interface Feature {
   id: string;
   title: string;
   description: string;
+  media: Media;
   showLink: boolean;
   newTab: boolean;
   url: string;
   text: string;
 }
 
-function Feature({ title, description, showLink, newTab, url, text }: Feature) {
+function Feature({ title, description, showLink, newTab, url, text, media }: Feature) {
+  const imgUrl = getStrapiMedia(media.data.attributes.url);
   return (
-    <div className="flex flex-col p-4 bg-darkBlueNew items-stretch justify-between rounded-2xl">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        className="w-8 h-8 dark:text-violet-400"
-      >
-        <path
-          fillRule="evenodd"
-          d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-          clipRule="evenodd"
-        ></path>
-      </svg>
+    <Link
+      href={{ pathname: url }}
+      target={newTab ? "_blank" : "_self"}
+      className="flex flex-col  p-4 bg-darkBlueNew justify-start rounded-2xl"
+    >
+      <div className="relative rounded-t-lg w-full overflow-hidden">
+        <Image
+          src={imgUrl || ""}
+          alt={media.data.attributes.alternativeText || "none provided"}
+          className="aspect-[16/9] w-full  bg-gray-100 sm:aspect-[2/1] lg:aspect-[3/2] object-cover object-top "
+          width={600}
+          height={600}
+        />
+      </div>
       <h3 className="my-3 text-3xl font-semibold">{title}</h3>
       <div className="space-y-1 leading-tight my-6">
         <p>{description}</p>
@@ -50,25 +64,27 @@ function Feature({ title, description, showLink, newTab, url, text }: Feature) {
           </Link>
         </div>
       )}
-    </div>
+    </Link>
   );
 }
 
 export default function Features({ data }: FeaturesProps) {
   return (
     <section className=" bg-lightBackground m:py-12 lg:py-24">
-      <div className="container mx-auto py-4 space-y-2 text-center">
-        <h2 className="text-3xl font-bold tracking-tight  sm:text-4xl">
-          {data.heading}
-        </h2>
-        <p className="mt-2 text-lg leading-8 text-lightBlueNew">
-          {data.description}
-        </p>
-      </div>
-      <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        {data.feature.map((feature: Feature, index: number) => (
-          <Feature key={index} {...feature} />
-        ))}
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="container mx-auto py-4 space-y-2 text-center">
+          <h2 className="text-3xl font-bold tracking-tight  sm:text-4xl">
+            {data.heading}
+          </h2>
+          <p className="mt-2 text-lg leading-8 text-lightBlueNew">
+            {data.description}
+          </p>
+        </div>
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          {data.feature.map((feature: Feature, index: number) => (
+            <Feature key={index} {...feature} />
+          ))}
+        </div>
       </div>
     </section>
   );
