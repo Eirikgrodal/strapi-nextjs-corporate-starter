@@ -8,6 +8,8 @@ interface FeaturesProps {
   };
 }
 
+
+
 interface Feature {
   id: string;
   title: string;
@@ -20,7 +22,7 @@ interface Feature {
 
 function Feature({ title, description, showLink, newTab, url, text }: Feature) {
   return (
-    <div className="flex flex-col items-center p-4">
+    <div className="flex flex-col p-4 bg-darkBlueNew items-stretch justify-between rounded-2xl">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
@@ -54,12 +56,16 @@ function Feature({ title, description, showLink, newTab, url, text }: Feature) {
 
 export default function Features({ data }: FeaturesProps) {
   return (
-    <section className="dark:bg-black dark:text-gray-100 m:py-12 lg:py-24">
+    <section className=" bg-lightBackground m:py-12 lg:py-24">
       <div className="container mx-auto py-4 space-y-2 text-center">
-        <h2 className="text-5xl font-bold">{data.heading}</h2>
-        <p className="dark:text-gray-400">{data.description}</p>
+        <h2 className="text-3xl font-bold tracking-tight  sm:text-4xl">
+          {data.heading}
+        </h2>
+        <p className="mt-2 text-lg leading-8 text-lightBlueNew">
+          {data.description}
+        </p>
       </div>
-      <div className="container mx-auto my-6 grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {data.feature.map((feature: Feature, index: number) => (
           <Feature key={index} {...feature} />
         ))}
