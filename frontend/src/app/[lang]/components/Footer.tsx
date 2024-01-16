@@ -100,7 +100,7 @@ export default function Footer({
         </div>
         <div className="grid justify-center pt-6 lg:justify-between">
           <div className="flex">
-            <span className="mr-2">
+            <span className="mr-2 text-xs leading-5">
               ©{new Date().getFullYear()} All rights reserved
             </span>
             <ul className="flex">
