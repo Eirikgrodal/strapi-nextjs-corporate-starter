@@ -10,8 +10,17 @@ const populate = {
       picture: {
         fields: ["url", "alternativeText", "caption", "width", "height"],
       },
+      
       buttons: {
         populate: true,
+      },
+      articles: {
+        populate: {
+          fields: ["target"],
+          cover: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+        },
       },
       feature: {
         populate: {
