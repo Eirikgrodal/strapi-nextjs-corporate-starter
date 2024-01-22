@@ -113,4 +113,4 @@ exports
 dist
 build
 .strapi-updater.json
-Package-lock.json
+package-lock.json
