@@ -58,6 +58,7 @@ export default async function PostRoute({ params }: { params: { slug: string } }
     return <Post data={data.data[0]} />;
 }
 
+
 export async function generateStaticParams() {
     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
     const path = `/articles`;
@@ -70,6 +71,11 @@ export async function generateStaticParams() {
         options
     );
 
+    if (!articleResponse.data) {
+        console.error('No data returned from API');
+        return [];
+    }
+
     return articleResponse.data.map(
         (article: {
             attributes: {
@@ -81,3 +87,26 @@ export async function generateStaticParams() {
         }) => ({ slug: article.attributes.slug, category: article.attributes.slug })
     );
 }
+// export async function generateStaticParams() {
+//     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+//     const path = `/articles`;
+//     const options = { headers: { Authorization: `Bearer ${token}` } };
+//     const articleResponse = await fetchAPI(
+//         path,
+//         {
+//             populate: ['category'],
+//         },
+//         options
+//     );
+
+//     return articleResponse.data.map(
+//         (article: {
+//             attributes: {
+//                 slug: string;
+//                 category: {
+//                     slug: string;
+//                 };
+//             };
+//         }) => ({ slug: article.attributes.slug, category: article.attributes.slug })
+//     );
+// }
