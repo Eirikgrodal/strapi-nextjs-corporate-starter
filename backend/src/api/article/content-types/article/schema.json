@@ -36,9 +36,9 @@
     },
     "categories": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::category.category",
-      "inversedBy": "articles"
+      "mappedBy": "article"
     },
     "blocks": {
       "type": "dynamiczone",

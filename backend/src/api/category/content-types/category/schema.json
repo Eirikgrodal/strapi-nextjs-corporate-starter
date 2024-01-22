@@ -22,11 +22,11 @@
     "description": {
       "type": "text"
     },
-    "articles": {
+    "article": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::article.article",
-      "mappedBy": "categories"
+      "inversedBy": "categories"
     }
   }
 }
