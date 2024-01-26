@@ -38,16 +38,6 @@ function FooterLink({ url, text }: FooterLink) {
   );
 }
 
-function CategoryLink({ attributes }: CategoryLink) {
-  return (
-    <li className="inline-block">
-      <Link href={`/blog/${attributes.slug}`} className="hover:text-darkGold">
-        {attributes.name}
-      </Link>
-    </li>
-  );
-}
-
 function RenderSocialIcon({ social }: { social: string | undefined }) {
   switch (social) {
     case "WEBSITE":
@@ -67,14 +57,12 @@ export default function Footer({
   // logoUrl,
   // logoText,
   menuLinks,
-  categoryLinks,
   legalLinks,
   socialLinks,
 }: {
   // logoUrl: string | null;
   // logoText: string | null;
   menuLinks: Array<FooterLink>;
-  categoryLinks: Array<CategoryLink>;
   legalLinks: Array<FooterLink>;
   socialLinks: Array<FooterLink>;
 }) {
@@ -82,13 +70,7 @@ export default function Footer({
     <footer className="py-6 ">
       <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
         <div className="">
-          <div className="mx-auto text-center">
-            <ul className="pb-6 md:flex-none flex flex-row justify-center">
-              {categoryLinks.map((link: CategoryLink) => (
-                <CategoryLink key={link.id} {...link} />
-              ))}
-            </ul>
-          </div>
+          
 
           <div className="">
             <ul className="-mb-6 columns-3 flex sm:flex justify-center sm:space-y-0 md:gap-16 gap-14">
