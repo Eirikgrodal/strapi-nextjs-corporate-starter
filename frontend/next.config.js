@@ -12,6 +12,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'images.pexels.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'peaceful-savannah-94001-9c3a9254d078.herokuapp.com',
       }
     ],
   },

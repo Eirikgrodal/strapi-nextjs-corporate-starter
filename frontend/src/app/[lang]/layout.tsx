@@ -88,7 +88,7 @@ export default async function RootLayout({
         />
 
         <main className=" min-h-screen">{children}</main>
-
+          
         <Banner data={notificationBanner} />
         <FooterCta footerctaData={ctaButton} />
         <Footer
