@@ -64,7 +64,6 @@ return (
 }
 
 export default function PortfolioHome({ data }: ArticlesProps) {
-    console.log(data)
 return (
     <section className=" bg-lightBackground py-24 sm:py-32">
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
