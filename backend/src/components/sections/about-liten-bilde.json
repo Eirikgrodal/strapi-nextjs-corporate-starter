@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_about_liten_bildes",
+  "info": {
+    "displayName": "About liten bilde"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_about_stor_bilde_s",
+  "info": {
+    "displayName": "About stor bilde "
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

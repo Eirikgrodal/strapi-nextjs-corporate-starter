@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_about_my_skills",
+  "info": {
+    "displayName": "About my skill"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "paragraph": {
+      "type": "text"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    }
+  }
+}

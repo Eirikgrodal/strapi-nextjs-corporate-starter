@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_elements_min_reises",
+  "info": {
+    "displayName": "min reise"
+  },
+  "options": {},
+  "attributes": {
+    "rolle": {
+      "type": "string"
+    },
+    "bedrift": {
+      "type": "string"
+    },
+    "dato": {
+      "type": "string"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "body": {
+      "type": "richtext"
+    }
+  }
+}

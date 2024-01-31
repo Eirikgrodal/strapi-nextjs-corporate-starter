@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_about_heroes",
+  "info": {
+    "displayName": "About hero"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "paragraph": {
+      "type": "text"
+    }
+  }
+}
