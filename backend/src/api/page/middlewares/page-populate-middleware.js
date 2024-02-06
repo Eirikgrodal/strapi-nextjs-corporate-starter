@@ -22,6 +22,19 @@ const populate = {
           },
         },
       },
+      categories: {
+        populate: {
+          fields: ["target"],
+        },
+      },
+      minReise: {
+        populate: {
+          fields: ["Rolle", "bedrift", "dato", "body", "url", "text"],
+          picture: {
+            fields: ["url", "alternativeText", "caption", "width", "height"],
+          },
+        },
+      },
       feature: {
         populate: {
           fields: ["title", "description", "showLink", "newTab", "url", "text"],

@@ -40,7 +40,14 @@
         "sections.features",
         "sections.heading",
         "sections.portfolio-home",
-        "sections.min-reise"
+        "sections.min-reise",
+        "sections.about-hero",
+        "sections.about-liten-bilde",
+        "sections.about-my-skill",
+        "sections.about-stor-bilde",
+        "sections.portfolio-hero",
+        "sections.about-min-reise",
+        "elements.min-reise"
       ],
       "pluginOptions": {
         "i18n": {
