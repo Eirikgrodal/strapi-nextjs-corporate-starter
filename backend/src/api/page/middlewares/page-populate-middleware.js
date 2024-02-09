@@ -20,6 +20,26 @@ const populate = {
           cover: {
             fields: ["url", "alternativeText", "caption", "width", "height"],
           },
+          target: {
+            populate: {
+              fields: ["target"],
+            },
+          },
+          categories: {
+            data: [
+              {
+                fields: ["name", "slug", "description", "createdAt", "updatedAt"],
+              },
+            ],
+          },
+          blocks: [
+            {
+              fields: ["__component"],
+            },
+            {
+              fields: ["__component", "body"],
+            },
+          ],
         },
       },
       categories: {
