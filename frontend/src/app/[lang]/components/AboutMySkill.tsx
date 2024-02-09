@@ -37,7 +37,7 @@ return (
             key={category.id}
             className="border-[1px] rounded-md border-Gold px-2 py-1 "
         >
-            <p className="text-sm font-medium">
+            <p className="text-md font-medium">
             {category.attributes.name}
             </p>
         </div>

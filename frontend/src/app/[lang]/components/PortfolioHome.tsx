@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getStrapiMedia } from "../utils/api-helpers";
-import { fetchAPI } from "../utils/fetch-api";
-import ArticleSelect from "./ArticleSelect";
 
 
 
@@ -71,12 +69,12 @@ return (
         height={600}
     />
     </div>
-    <div className=" mt-4 flex gap-1 ">
-    {categories.data.map(() => (
-        <div className="px-2 py-1 bg-Gold hover:bg-darkGold rounded-sm">
-        <p className="text-sm text-white font-semibold">
-            {categories?.data[0]?.attributes?.name}
-        </p>
+    <div className=" mt-4 flex-wrap flex gap-1 ">
+    {categories.data.map((category: Category) => (
+        <div key={category.id} className="px-2 py-1 bg-Gold hover:bg-darkGold rounded-sm">
+            <p className="text-sm text-white font-semibold">
+                {category.attributes.name}
+            </p>
         </div>
     ))}
     </div>

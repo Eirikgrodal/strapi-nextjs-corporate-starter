@@ -18,13 +18,8 @@ interface Article {
         };
       };
     };
-    category: {
-      data: {
-        attributes: {
-          name: string;
-          slug: string;
-        };
-      };
+    categories: {
+      data: Category[];
     };
     authorsBio: {
       data: {
@@ -43,6 +38,14 @@ interface Article {
   };
 }
 
+interface Category {
+  id: number;
+  attributes: {
+    name: string;
+    slug: string;
+  };
+}
+
 export default function PostList({
   data: articles,
   children,
@@ -50,67 +53,57 @@ export default function PostList({
   data: Article[];
   children?: React.ReactNode;
 }) {
+  console.log(articles);
   return (
-    <section className="container p-6 mx-auto space-y-6 sm:space-y-12">
-      <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {articles.map((article) => {
-          const imageUrl = getStrapiMedia(
-            article.attributes.cover.data?.attributes.url
-          );
+    <section className="py-12 sm:py-20 bg-lightBackground">
+      <div className="container  p-6 mx-auto space-y-6 sm:space-y-12">
+        <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {articles.map((article) => {
+            const imageUrl = getStrapiMedia(
+              article.attributes.cover.data?.attributes.url
+            );
 
-          const authorsBio = article.attributes.authorsBio.data?.attributes;
-
-          const avatarUrl = getStrapiMedia(
-            authorsBio?.avatar.data.attributes.url
-          );
-
-          return (
-            <Link
-              href={`/blog/${article.attributes.slug}`}
-              key={article.id}
-              className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-900 lg:w-[300px] xl:min-w-[375px] rounded-2xl overflow-hidden shadow-lg"
-            >
-              {imageUrl && (
-                <Image
-                  alt="presentation"
-                  width="240"
-                  height="240"
-                  className="object-cover w-full h-44 "
-                  src={imageUrl}
-                />
-              )}
-              <div className="p-6 space-y-2 relative">
-                {avatarUrl && (
+            return (
+              <Link
+                href={`/blog/${article.attributes.categories?.data[0]?.attributes?.slug}/${article.attributes.slug}`}
+                // target={newTab ? "_blank" : "_self"}
+                className="flex flex-col  p-4 bg-darkBlueNew justify-start rounded-2xl"
+              >
+                <div className="relative rounded-t-lg w-full overflow-hidden">
                   <Image
-                    alt="avatar"
-                    width="80"
-                    height="80"
-                    src={avatarUrl}
-                    className="rounded-full h-16 w-16 object-cover absolute -top-8 right-4"
+                    src={imageUrl || ""}
+                    alt="presentation"
+                    className="aspect-[16/9] w-full  bg-gray-100 sm:aspect-[2/1] lg:aspect-[3/2] object-cover object-top "
+                    width={600}
+                    height={600}
                   />
-                )}
-
-                <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
-                  {article.attributes.title}
-                </h3>
-
-                <div className="flex justify-between items-center">
-                  <span className="text-xs dark:text-gray-400">
-                    {formatDate(article.attributes.publishedAt)}
-                  </span>
-                  {authorsBio && (
-                    <span className="text-xs dark:text-gray-400">
-                      {authorsBio.name}
-                    </span>
+                </div>
+                <div className=" mt-4 flex flex-wrap gap-1 ">
+                  {article.attributes.categories?.data?.map(
+                    (category: Category) => (
+                      <div
+                        key={category.id}
+                        className="px-2 py-1 bg-Gold hover:bg-darkGold rounded-sm"
+                      >
+                        <p className="text-sm text-white font-semibold">
+                          {category.attributes.name}
+                        </p>
+                      </div>
+                    )
                   )}
                 </div>
-                <p className="py-4">{article.attributes.description}</p>
-              </div>
-            </Link>
-          );
-        })}
+                <h3 className="my-3 text-3xl font-semibold">
+                  {article.attributes.title}
+                </h3>
+                <div className="space-y-1 leading-tight my-6">
+                  <p>{article.attributes.description}</p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+        {children && children}
       </div>
-      {children && children}
     </section>
   );
 }
