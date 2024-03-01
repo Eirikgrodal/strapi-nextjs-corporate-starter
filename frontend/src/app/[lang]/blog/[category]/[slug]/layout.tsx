@@ -21,6 +21,7 @@ try {
                 name: filter,
             },
             },
+            populate: "cover, categories",
         }
         : {},
     options
@@ -51,6 +52,18 @@ id: number;
 attributes: {
     title: string;
     slug: string;
+    description: string;
+    cover: {
+    data: {
+        attributes: {
+        url: string;
+        alternativeText: string;
+        };
+    };
+    };
+    categories: {
+        data: Category[];
+    };
 };
 }
 
@@ -108,6 +121,14 @@ return articleResponse.data.map(
         slug: string;
         category: {
         slug: string;
+        };
+        cover: {
+            data: {
+                attributes: {
+                    url: string;
+                    alternativeText: string;
+                };
+            };
         };
     };
     }) => ({ slug: article.attributes.slug, category: article.attributes.slug })
